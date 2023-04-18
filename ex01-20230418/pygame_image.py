@@ -22,7 +22,10 @@ def main():
 
         tmr += 1
         screen.blit(bg_img, [0, 0])
-        screen.blit(kk_img, [0,0])
+        if tmr % 2 == 0:
+            screen.blit(kk_lst[0], [300,200])
+        elif tmr % 2 == 1:
+            screen.blit(kk_lst[1], [300,200])
         pg.display.update()
         clock.tick(100)
 
