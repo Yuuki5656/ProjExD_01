@@ -10,8 +10,12 @@ def main():
     kk_img = pg.image.load("ex01-20230418/fig/3.png")
     kk_img = pg.transform.flip(kk_img, True, False)
 
-    kk_img2 = pg.transform.rotozoom(kk_img, 10, 1.0)
-    kk_lst = [kk_img, kk_img2]
+    kk_img2 = pg.transform.rotozoom(kk_img, 2, 1.0)
+    kk_img3 = pg.transform.rotozoom(kk_img, 4, 1.0)
+    kk_img4 = pg.transform.rotozoom(kk_img, 6, 1.0)
+    kk_img5 = pg.transform.rotozoom(kk_img, 8, 1.0)
+    kk_img6 = pg.transform.rotozoom(kk_img, 10, 1.0)
+    kk_lst = [kk_img, kk_img2, kk_img3, kk_img4, kk_img5, kk_img6, kk_img5, kk_img4, kk_img3, kk_img2]
 
     tmr = 0
 
@@ -24,10 +28,8 @@ def main():
         x = tmr%1600
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg_img, [1600-x,0])
-        if tmr % 2 == 0:
-            screen.blit(kk_lst[0], [300,200])
-        elif tmr % 2 == 1:
-            screen.blit(kk_lst[1], [300,200])
+        
+        screen.blit(kk_lst[tmr%10], [300,200])
         pg.display.update()
         clock.tick(100)
 
